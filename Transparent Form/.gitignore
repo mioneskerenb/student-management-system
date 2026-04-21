@@ -1,0 +1,15 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+
+# PHP
+vendor/
+
+# Environment / logs
+.env
+*.log
+
+# Build files
+*.exe
+*.dll
