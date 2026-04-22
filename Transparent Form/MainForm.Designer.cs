@@ -114,7 +114,7 @@ namespace Transparent_Form
             this.button_exit.Margin = new System.Windows.Forms.Padding(5);
             this.button_exit.Name = "button_exit";
             this.button_exit.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button_exit.Size = new System.Drawing.Size(183, 55);
+            this.button_exit.Size = new System.Drawing.Size(179, 55);
             this.button_exit.TabIndex = 8;
             this.button_exit.Text = "Exit";
             this.button_exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -131,7 +131,7 @@ namespace Transparent_Form
             this.button_dashboard.Margin = new System.Windows.Forms.Padding(5);
             this.button_dashboard.Name = "button_dashboard";
             this.button_dashboard.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button_dashboard.Size = new System.Drawing.Size(183, 55);
+            this.button_dashboard.Size = new System.Drawing.Size(179, 55);
             this.button_dashboard.TabIndex = 7;
             this.button_dashboard.Text = "Dashboard";
             this.button_dashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -147,7 +147,7 @@ namespace Transparent_Form
             this.panel_scoreSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_scoreSubmenu.Location = new System.Drawing.Point(0, 611);
             this.panel_scoreSubmenu.Name = "panel_scoreSubmenu";
-            this.panel_scoreSubmenu.Size = new System.Drawing.Size(183, 153);
+            this.panel_scoreSubmenu.Size = new System.Drawing.Size(179, 153);
             this.panel_scoreSubmenu.TabIndex = 6;
             // 
             // button_scorePrint
@@ -159,7 +159,7 @@ namespace Transparent_Form
             this.button_scorePrint.Location = new System.Drawing.Point(0, 100);
             this.button_scorePrint.Name = "button_scorePrint";
             this.button_scorePrint.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button_scorePrint.Size = new System.Drawing.Size(183, 50);
+            this.button_scorePrint.Size = new System.Drawing.Size(179, 50);
             this.button_scorePrint.TabIndex = 3;
             this.button_scorePrint.Text = "Print";
             this.button_scorePrint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -175,7 +175,7 @@ namespace Transparent_Form
             this.button_manageScore.Location = new System.Drawing.Point(0, 50);
             this.button_manageScore.Name = "button_manageScore";
             this.button_manageScore.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button_manageScore.Size = new System.Drawing.Size(183, 50);
+            this.button_manageScore.Size = new System.Drawing.Size(179, 50);
             this.button_manageScore.TabIndex = 1;
             this.button_manageScore.Text = "Manage Score";
             this.button_manageScore.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -191,7 +191,7 @@ namespace Transparent_Form
             this.button_newScore.Location = new System.Drawing.Point(0, 0);
             this.button_newScore.Name = "button_newScore";
             this.button_newScore.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button_newScore.Size = new System.Drawing.Size(183, 50);
+            this.button_newScore.Size = new System.Drawing.Size(179, 50);
             this.button_newScore.TabIndex = 0;
             this.button_newScore.Text = "New Score";
             this.button_newScore.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -208,7 +208,7 @@ namespace Transparent_Form
             this.button_score.Margin = new System.Windows.Forms.Padding(5);
             this.button_score.Name = "button_score";
             this.button_score.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button_score.Size = new System.Drawing.Size(183, 55);
+            this.button_score.Size = new System.Drawing.Size(179, 55);
             this.button_score.TabIndex = 5;
             this.button_score.Text = "Score";
             this.button_score.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -224,7 +224,7 @@ namespace Transparent_Form
             this.panel_courseSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_courseSubmenu.Location = new System.Drawing.Point(0, 405);
             this.panel_courseSubmenu.Name = "panel_courseSubmenu";
-            this.panel_courseSubmenu.Size = new System.Drawing.Size(183, 151);
+            this.panel_courseSubmenu.Size = new System.Drawing.Size(179, 151);
             this.panel_courseSubmenu.TabIndex = 4;
             // 
             // button_coursePrint
@@ -236,7 +236,7 @@ namespace Transparent_Form
             this.button_coursePrint.Location = new System.Drawing.Point(0, 100);
             this.button_coursePrint.Name = "button_coursePrint";
             this.button_coursePrint.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button_coursePrint.Size = new System.Drawing.Size(183, 51);
+            this.button_coursePrint.Size = new System.Drawing.Size(179, 51);
             this.button_coursePrint.TabIndex = 3;
             this.button_coursePrint.Text = "Print";
             this.button_coursePrint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -252,9 +252,9 @@ namespace Transparent_Form
             this.button_manageCourse.Location = new System.Drawing.Point(0, 50);
             this.button_manageCourse.Name = "button_manageCourse";
             this.button_manageCourse.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button_manageCourse.Size = new System.Drawing.Size(183, 50);
+            this.button_manageCourse.Size = new System.Drawing.Size(179, 50);
             this.button_manageCourse.TabIndex = 1;
-            this.button_manageCourse.Text = "Manage Course";
+            this.button_manageCourse.Text = "Class Arm";
             this.button_manageCourse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_manageCourse.UseVisualStyleBackColor = true;
             this.button_manageCourse.Click += new System.EventHandler(this.button_manageCourse_Click);
@@ -268,9 +268,9 @@ namespace Transparent_Form
             this.button_newCourse.Location = new System.Drawing.Point(0, 0);
             this.button_newCourse.Name = "button_newCourse";
             this.button_newCourse.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button_newCourse.Size = new System.Drawing.Size(183, 50);
+            this.button_newCourse.Size = new System.Drawing.Size(179, 50);
             this.button_newCourse.TabIndex = 0;
-            this.button_newCourse.Text = "New Course";
+            this.button_newCourse.Text = "New Class";
             this.button_newCourse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_newCourse.UseVisualStyleBackColor = true;
             this.button_newCourse.Click += new System.EventHandler(this.button_newCourse_Click);
@@ -285,9 +285,9 @@ namespace Transparent_Form
             this.button_course.Margin = new System.Windows.Forms.Padding(5);
             this.button_course.Name = "button_course";
             this.button_course.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button_course.Size = new System.Drawing.Size(183, 55);
+            this.button_course.Size = new System.Drawing.Size(179, 55);
             this.button_course.TabIndex = 3;
-            this.button_course.Text = "Course";
+            this.button_course.Text = "Manage Class";
             this.button_course.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_course.UseVisualStyleBackColor = true;
             this.button_course.Click += new System.EventHandler(this.button_course_Click);
@@ -301,7 +301,7 @@ namespace Transparent_Form
             this.panel_stdsubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_stdsubmenu.Location = new System.Drawing.Point(0, 196);
             this.panel_stdsubmenu.Name = "panel_stdsubmenu";
-            this.panel_stdsubmenu.Size = new System.Drawing.Size(183, 154);
+            this.panel_stdsubmenu.Size = new System.Drawing.Size(179, 154);
             this.panel_stdsubmenu.TabIndex = 2;
             // 
             // button_stdPrint
@@ -313,7 +313,7 @@ namespace Transparent_Form
             this.button_stdPrint.Location = new System.Drawing.Point(0, 100);
             this.button_stdPrint.Name = "button_stdPrint";
             this.button_stdPrint.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button_stdPrint.Size = new System.Drawing.Size(183, 50);
+            this.button_stdPrint.Size = new System.Drawing.Size(179, 50);
             this.button_stdPrint.TabIndex = 3;
             this.button_stdPrint.Text = "Print";
             this.button_stdPrint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -329,7 +329,7 @@ namespace Transparent_Form
             this.button_manageStd.Location = new System.Drawing.Point(0, 50);
             this.button_manageStd.Name = "button_manageStd";
             this.button_manageStd.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button_manageStd.Size = new System.Drawing.Size(183, 50);
+            this.button_manageStd.Size = new System.Drawing.Size(179, 50);
             this.button_manageStd.TabIndex = 1;
             this.button_manageStd.Text = "Manage Student";
             this.button_manageStd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -345,7 +345,7 @@ namespace Transparent_Form
             this.button_registration.Location = new System.Drawing.Point(0, 0);
             this.button_registration.Name = "button_registration";
             this.button_registration.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button_registration.Size = new System.Drawing.Size(183, 50);
+            this.button_registration.Size = new System.Drawing.Size(179, 50);
             this.button_registration.TabIndex = 0;
             this.button_registration.Text = "Registration";
             this.button_registration.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -362,7 +362,7 @@ namespace Transparent_Form
             this.button_std.Margin = new System.Windows.Forms.Padding(5);
             this.button_std.Name = "button_std";
             this.button_std.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button_std.Size = new System.Drawing.Size(183, 55);
+            this.button_std.Size = new System.Drawing.Size(179, 55);
             this.button_std.TabIndex = 1;
             this.button_std.Text = "Student";
             this.button_std.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -378,7 +378,7 @@ namespace Transparent_Form
             this.panel_logo.Location = new System.Drawing.Point(0, 0);
             this.panel_logo.Margin = new System.Windows.Forms.Padding(5);
             this.panel_logo.Name = "panel_logo";
-            this.panel_logo.Size = new System.Drawing.Size(183, 141);
+            this.panel_logo.Size = new System.Drawing.Size(179, 141);
             this.panel_logo.TabIndex = 0;
             // 
             // label4
@@ -388,7 +388,7 @@ namespace Transparent_Form
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(55, 113);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 19);
+            this.label4.Size = new System.Drawing.Size(157, 23);
             this.label4.TabIndex = 0;
             this.label4.Text = "Mdemy School";
             // 
@@ -399,7 +399,7 @@ namespace Transparent_Form
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(3, 88);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 19);
+            this.label3.Size = new System.Drawing.Size(164, 23);
             this.label3.TabIndex = 0;
             this.label3.Text = "Welcome From ";
             // 
@@ -410,7 +410,7 @@ namespace Transparent_Form
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(55, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 55);
+            this.label2.Size = new System.Drawing.Size(87, 68);
             this.label2.TabIndex = 0;
             this.label2.Text = "M";
             // 
@@ -469,7 +469,7 @@ namespace Transparent_Form
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(543, 16);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(109, 21);
+            this.label11.Size = new System.Drawing.Size(139, 23);
             this.label11.TabIndex = 6;
             this.label11.Text = "Select Class :";
             // 
@@ -480,7 +480,7 @@ namespace Transparent_Form
             this.label_cfemale.ForeColor = System.Drawing.Color.White;
             this.label_cfemale.Location = new System.Drawing.Point(771, 53);
             this.label_cfemale.Name = "label_cfemale";
-            this.label_cfemale.Size = new System.Drawing.Size(75, 21);
+            this.label_cfemale.Size = new System.Drawing.Size(95, 23);
             this.label_cfemale.TabIndex = 4;
             this.label_cfemale.Text = "Female :";
             // 
@@ -491,7 +491,7 @@ namespace Transparent_Form
             this.label_cmale.ForeColor = System.Drawing.Color.White;
             this.label_cmale.Location = new System.Drawing.Point(665, 53);
             this.label_cmale.Name = "label_cmale";
-            this.label_cmale.Size = new System.Drawing.Size(57, 21);
+            this.label_cmale.Size = new System.Drawing.Size(70, 23);
             this.label_cmale.TabIndex = 5;
             this.label_cmale.Text = "Male :";
             // 
@@ -501,7 +501,7 @@ namespace Transparent_Form
             this.comboBox_course.FormattingEnabled = true;
             this.comboBox_course.Location = new System.Drawing.Point(660, 12);
             this.comboBox_course.Name = "comboBox_course";
-            this.comboBox_course.Size = new System.Drawing.Size(211, 29);
+            this.comboBox_course.Size = new System.Drawing.Size(211, 31);
             this.comboBox_course.TabIndex = 3;
             this.comboBox_course.SelectedIndexChanged += new System.EventHandler(this.comboBox_course_SelectedIndexChanged);
             // 
@@ -512,7 +512,7 @@ namespace Transparent_Form
             this.label_femaleStd.ForeColor = System.Drawing.Color.White;
             this.label_femaleStd.Location = new System.Drawing.Point(137, 49);
             this.label_femaleStd.Name = "label_femaleStd";
-            this.label_femaleStd.Size = new System.Drawing.Size(75, 21);
+            this.label_femaleStd.Size = new System.Drawing.Size(95, 23);
             this.label_femaleStd.TabIndex = 2;
             this.label_femaleStd.Text = "Female :";
             // 
@@ -523,7 +523,7 @@ namespace Transparent_Form
             this.label_maleStd.ForeColor = System.Drawing.Color.White;
             this.label_maleStd.Location = new System.Drawing.Point(40, 49);
             this.label_maleStd.Name = "label_maleStd";
-            this.label_maleStd.Size = new System.Drawing.Size(57, 21);
+            this.label_maleStd.Size = new System.Drawing.Size(70, 23);
             this.label_maleStd.TabIndex = 2;
             this.label_maleStd.Text = "Male :";
             // 
@@ -534,7 +534,7 @@ namespace Transparent_Form
             this.label_totalStd.ForeColor = System.Drawing.Color.White;
             this.label_totalStd.Location = new System.Drawing.Point(35, 13);
             this.label_totalStd.Name = "label_totalStd";
-            this.label_totalStd.Size = new System.Drawing.Size(130, 21);
+            this.label_totalStd.Size = new System.Drawing.Size(157, 23);
             this.label_totalStd.TabIndex = 1;
             this.label_totalStd.Text = "Total Students :";
             // 
@@ -569,7 +569,7 @@ namespace Transparent_Form
             this.label_role.ForeColor = System.Drawing.Color.White;
             this.label_role.Location = new System.Drawing.Point(140, 40);
             this.label_role.Name = "label_role";
-            this.label_role.Size = new System.Drawing.Size(62, 21);
+            this.label_role.Size = new System.Drawing.Size(73, 23);
             this.label_role.TabIndex = 3;
             this.label_role.Text = "Admin";
             // 
@@ -579,7 +579,7 @@ namespace Transparent_Form
             this.label_user.ForeColor = System.Drawing.Color.White;
             this.label_user.Location = new System.Drawing.Point(140, 13);
             this.label_user.Name = "label_user";
-            this.label_user.Size = new System.Drawing.Size(69, 21);
+            this.label_user.Size = new System.Drawing.Size(84, 23);
             this.label_user.TabIndex = 2;
             this.label_user.Text = "Mdemy";
             // 
@@ -589,7 +589,7 @@ namespace Transparent_Form
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(75, 40);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 21);
+            this.label5.Size = new System.Drawing.Size(64, 23);
             this.label5.TabIndex = 1;
             this.label5.Text = "Role :";
             // 
@@ -599,7 +599,7 @@ namespace Transparent_Form
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(35, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 21);
+            this.label1.Size = new System.Drawing.Size(114, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Welcome :";
             // 
@@ -619,13 +619,13 @@ namespace Transparent_Form
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(200)))));
             this.label12.Location = new System.Drawing.Point(8, 24);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(310, 19);
+            this.label12.Size = new System.Drawing.Size(390, 23);
             this.label12.TabIndex = 0;
             this.label12.Text = "Mdemy International School, Myanmar";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 613);
             this.Controls.Add(this.panel_main);

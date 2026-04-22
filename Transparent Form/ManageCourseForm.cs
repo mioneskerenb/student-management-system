@@ -1,11 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,99 +12,247 @@ namespace Transparent_Form
     public partial class ManageCourseForm : Form
     {
         CourseClass course = new CourseClass();
+
         public ManageCourseForm()
         {
             InitializeComponent();
         }
 
-        private void ManageCourseForm_Load(object sender, EventArgs e)
+        private async void ManageCourseForm_Load(object sender, EventArgs e)
         {
-            showData();
-
+            await LoadClassesFromApi();
         }
-        // Show data of the course 
-        private void showData()
+
+        private async Task LoadClassesFromApi()
         {
-            //to show course list on datagridview
-            DataGridView_course.DataSource = course.getCourse(new MySqlCommand("SELECT * FROM `course`"));
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    if (string.IsNullOrEmpty(SessionManager.Token))
+                    {
+                        MessageBox.Show(
+                            "No token found. Please login again.",
+                            "Authentication Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning
+                        );
+                        return;
+                    }
+
+                    client.DefaultRequestHeaders.Authorization =
+                        new AuthenticationHeaderValue("Bearer", SessionManager.Token);
+
+                    string url = "http://localhost/Student-Attendance-System01-main/api/classes.php";
+
+                    HttpResponseMessage response = await client.GetAsync(url);
+                    string json = await response.Content.ReadAsStringAsync();
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show(
+                            "HTTP Error: " + response.StatusCode + "\n\nResponse:\n" + json,
+                            "Server Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                        return;
+                    }
+
+                    if (string.IsNullOrWhiteSpace(json))
+                    {
+                        MessageBox.Show(
+                            "The server returned an empty response.",
+                            "Server Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                        return;
+                    }
+
+                    if (json.TrimStart().StartsWith("<"))
+                    {
+                        MessageBox.Show(
+                            "The API returned HTML instead of JSON.\n\nResponse:\n" + json,
+                            "Server Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                        return;
+                    }
+
+                    ClassApiResponse result = JsonConvert.DeserializeObject<ClassApiResponse>(json);
+
+                    if (result != null && result.success)
+                    {
+                        DataGridView_class.DataSource = result.data;
+                        DataGridView_class.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        DataGridView_class.ReadOnly = true;
+                        DataGridView_class.AllowUserToAddRows = false;
+                        DataGridView_class.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            result?.message ?? "Failed to load classes.",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        "Connection error: " + ex.Message,
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                }
+            }
+        }
+
+        private async void button_save_Click(object sender, EventArgs e)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    if (string.IsNullOrEmpty(SessionManager.Token))
+                    {
+                        MessageBox.Show(
+                            "No token found. Please login again.",
+                            "Authentication Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning
+                        );
+                        return;
+                    }
+
+                    if (string.IsNullOrWhiteSpace(textBox_className.Text))
+                    {
+                        MessageBox.Show(
+                            "Please enter class name.",
+                            "Validation",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning
+                        );
+                        return;
+                    }
+
+                    client.DefaultRequestHeaders.Authorization =
+                        new AuthenticationHeaderValue("Bearer", SessionManager.Token);
+
+                    var values = new Dictionary<string, string>
+                    {
+                        { "className", textBox_className.Text.Trim() }
+                    };
+
+                    var content = new FormUrlEncodedContent(values);
+
+                    string url = "http://localhost/Student-Attendance-System01-main/api/add_class.php";
+
+                    HttpResponseMessage response = await client.PostAsync(url, content);
+                    string json = await response.Content.ReadAsStringAsync();
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show(
+                            "HTTP Error: " + response.StatusCode + "\n\nResponse:\n" + json,
+                            "Server Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                        return;
+                    }
+
+                    if (string.IsNullOrWhiteSpace(json))
+                    {
+                        MessageBox.Show(
+                            "The server returned an empty response.",
+                            "Server Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                        return;
+                    }
+
+                    if (json.TrimStart().StartsWith("<"))
+                    {
+                        MessageBox.Show(
+                            "The API returned HTML instead of JSON.\n\nResponse:\n" + json,
+                            "Server Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                        return;
+                    }
+
+                    ApiMessageResponse result = JsonConvert.DeserializeObject<ApiMessageResponse>(json);
+
+                    if (result != null && result.success)
+                    {
+                        MessageBox.Show(
+                            result.message,
+                            "Success",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+
+                        ClearFields();
+                        await LoadClassesFromApi();
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            result?.message ?? "Failed to add class.",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        "Connection error: " + ex.Message,
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                }
+            }
+        }
+
+        private void DataGridView_class_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DataGridView_class.CurrentRow != null)
+            {
+                textBox_className.Text = DataGridView_class.CurrentRow.Cells["className"].Value?.ToString();
+            }
+        }
+
+        private void ClearFields()
+        {
+            textBox_className.Text = "";
+            textBox_className.Focus();
         }
 
         private void button_clear_Click(object sender, EventArgs e)
         {
-            textBox_id.Clear();
-            textBox_Cname.Clear();
-            textBox_Chour.Clear();
-            textBox_description.Clear();
-        }
-
-        private void button_Update_Click(object sender, EventArgs e)
-        {
-            if (textBox_Cname.Text == "" || textBox_Chour.Text == ""|| textBox_id.Text.Equals(""))
-            {
-                MessageBox.Show("Need Course data", "Field Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            { 
-                int id = Convert.ToInt32(textBox_id.Text);
-                string cName = textBox_Cname.Text;
-                int chr = Convert.ToInt32(textBox_Chour.Text);
-                string desc = textBox_description.Text;
-
-
-                if (course.updateCourse(id, cName, chr, desc))
-                {
-                    showData();
-                    button_clear.PerformClick();
-                    MessageBox.Show("course update successfuly", "Update Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                }
-                else
-                {
-                    MessageBox.Show("Error-Course not Edit", "Update Course", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private void button_delete_Click(object sender, EventArgs e)
-        {
-            if (textBox_id.Text.Equals(""))
-            {
-                MessageBox.Show("Need Course Id", "Field Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                try
-                {
-                    int id = Convert.ToInt32(textBox_id.Text);
-                    if (course.deletCourse(id))
-                    {
-                        showData();
-                        button_clear.PerformClick();
-                        MessageBox.Show("course Deleted", "Removed Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    }
-                }
-                catch (Exception ex)
-
-                {
-                    MessageBox.Show(ex.Message, "Removed Course", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private void DataGridView_course_Click(object sender, EventArgs e)
-        {
-            textBox_id.Text = DataGridView_course.CurrentRow.Cells[0].Value.ToString();
-            textBox_Cname.Text = DataGridView_course.CurrentRow.Cells[1].Value.ToString();
-            textBox_Chour.Text = DataGridView_course.CurrentRow.Cells[2].Value.ToString();
-            textBox_description.Text = DataGridView_course.CurrentRow.Cells[3].Value.ToString();
-        }
-
-        private void button_search_Click(object sender, EventArgs e)
-        {
-            //To Search course and show on datagridview
-            DataGridView_course.DataSource = course.getCourse(new MySqlCommand("SELECT * FROM `course` WHERE CONCAT(`CourseName`)LIKE '%"+textBox_search.Text+"%'"));
-            textBox_search.Clear();
+            ClearFields();
         }
     }
+
+    public class ClassApiResponse
+    {
+        public bool success { get; set; }
+        public List<ClassItem> data { get; set; }
+        public string message { get; set; }
+    }
+
+    
+
+  
 }

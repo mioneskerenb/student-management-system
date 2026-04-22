@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace Transparent_Form
 {
@@ -119,7 +120,7 @@ namespace Transparent_Form
         #region CourseSubmenu
         private void button_newCourse_Click(object sender, EventArgs e)
         {
-            openChildForm(new CourseForm());
+            openChildForm(new ManageCourseForm());
             //...
             //..Your code
             //...
@@ -128,7 +129,7 @@ namespace Transparent_Form
 
         private void button_manageCourse_Click(object sender, EventArgs e)
         {
-            openChildForm(new ManageCourseForm());
+            openChildForm(new CourseForm());
             //...
             //..Your code
             //...

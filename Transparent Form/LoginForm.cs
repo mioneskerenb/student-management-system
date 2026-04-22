@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net.Http;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
 
 namespace Transparent_Form
 {
     public partial class LoginForm : Form
     {
-        StudentClass student = new StudentClass();
         public LoginForm()
         {
             InitializeComponent();
@@ -34,42 +29,145 @@ namespace Transparent_Form
             label6.ForeColor = Color.Transparent;
         }
 
-        private void button_login_Click(object sender, EventArgs e)
+        private async void button_login_Click(object sender, EventArgs e)
         {
-            MainForm main = new MainForm();
-            this.Hide();
-            main.Show();
-            /*if (textBox_usrname.Text == "" || textBox_password.Text == "")
+            if (string.IsNullOrWhiteSpace(textBox_usrname.Text) || string.IsNullOrWhiteSpace(textBox_password.Text))
             {
-                MessageBox.Show("Need login data", "Wrong Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                string uname = textBox_usrname.Text;
-                string pass = textBox_password.Text;
-
-                // ✅ FIX: use parameter + MD5
-                MySqlCommand command = new MySqlCommand(
-                    "SELECT * FROM `user` WHERE `username`=@u AND `password`=MD5(@p)"
+                MessageBox.Show(
+                    "Please enter username and password.",
+                    "Login Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
                 );
+                return;
+            }
 
-                command.Parameters.Add("@u", MySqlDbType.VarChar).Value = uname;
-                command.Parameters.Add("@p", MySqlDbType.VarChar).Value = pass;
+            string username = textBox_usrname.Text.Trim();
+            string password = textBox_password.Text.Trim();
+            string userType = "Administrator";
 
-                DataTable table = student.getList(command);
-
-                if (table.Rows.Count > 0)
+            using (HttpClient client = new HttpClient())
+            {
+                try
                 {
-                    MainForm main = new MainForm();
-                    this.Hide();
-                    main.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Wrong username or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }*/
+                    var values = new Dictionary<string, string>
+                    {
+                        { "username", username },
+                        { "password", password },
+                        { "userType", userType }
+                    };
 
+                    var content = new FormUrlEncodedContent(values);
+
+                    HttpResponseMessage response = await client.PostAsync(
+                        "http://localhost/Student-Attendance-System01-main/api/login.php",
+                        content
+                    );
+
+                    string json = await response.Content.ReadAsStringAsync();
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show(
+                            "HTTP Error: " + response.StatusCode + "\n\nResponse:\n" + json,
+                            "Server Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                        return;
+                    }
+
+                    if (string.IsNullOrWhiteSpace(json))
+                    {
+                        MessageBox.Show(
+                            "The server returned an empty response.",
+                            "Server Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                        return;
+                    }
+
+                    if (json.TrimStart().StartsWith("<"))
+                    {
+                        MessageBox.Show(
+                            "The API returned HTML instead of JSON.\n\nResponse:\n" + json,
+                            "Server Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                        return;
+                    }
+
+                    ApiLoginResponse result = JsonConvert.DeserializeObject<ApiLoginResponse>(json);
+
+                    if (result != null && result.success)
+                    {
+                        SessionManager.Token = result.token;
+                        SessionManager.UserType = result.userType;
+
+                        if (result.data != null)
+                        {
+                            SessionManager.UserName = result.data.firstName + " " + result.data.lastName;
+                        }
+
+                        MessageBox.Show(
+                            "Login successful!",
+                            "Success",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+
+                        MainForm main = new MainForm();
+                        this.Hide();
+                        main.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            result?.message ?? "Login failed.",
+                            "Login Failed",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                    }
+                }
+                catch (JsonException ex)
+                {
+                    MessageBox.Show(
+                        "JSON parsing error: " + ex.Message,
+                        "Parse Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        "Connection error: " + ex.Message,
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                }
+            }
         }
+    }
+
+    public class ApiLoginResponse
+    {
+        public bool success { get; set; }
+        public string message { get; set; }
+        public string token { get; set; }
+        public string userType { get; set; }
+        public UserData data { get; set; }
+    }
+
+    public class UserData
+    {
+        public int Id { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string emailAddress { get; set; }
     }
 }
