@@ -101,6 +101,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiModels.cs" />
     <Compile Include="CourseClass.cs" />
     <Compile Include="CourseForm.cs">
       <SubType>Form</SubType>

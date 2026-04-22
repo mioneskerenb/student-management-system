@@ -331,7 +331,7 @@ namespace Transparent_Form
             this.button_manageStd.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.button_manageStd.Size = new System.Drawing.Size(179, 50);
             this.button_manageStd.TabIndex = 1;
-            this.button_manageStd.Text = "Manage Student";
+            this.button_manageStd.Text = "Student";
             this.button_manageStd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_manageStd.UseVisualStyleBackColor = true;
             this.button_manageStd.Click += new System.EventHandler(this.button_manageStd_Click);
@@ -347,7 +347,7 @@ namespace Transparent_Form
             this.button_registration.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.button_registration.Size = new System.Drawing.Size(179, 50);
             this.button_registration.TabIndex = 0;
-            this.button_registration.Text = "Registration";
+            this.button_registration.Text = "Teacher";
             this.button_registration.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_registration.UseVisualStyleBackColor = true;
             this.button_registration.Click += new System.EventHandler(this.button_registration_Click);
@@ -364,7 +364,7 @@ namespace Transparent_Form
             this.button_std.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button_std.Size = new System.Drawing.Size(179, 55);
             this.button_std.TabIndex = 1;
-            this.button_std.Text = "Student";
+            this.button_std.Text = "Manage";
             this.button_std.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_std.UseVisualStyleBackColor = true;
             this.button_std.Click += new System.EventHandler(this.button_std_Click);

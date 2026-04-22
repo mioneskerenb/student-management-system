@@ -78,7 +78,7 @@ namespace Transparent_Form
         #region StdSubmenu
         private void button_registration_Click(object sender, EventArgs e)
         {
-            openChildForm(new RegisterForm());
+            openChildForm(new ManageTeacherForm());
             //...
             //..Your code
             //...

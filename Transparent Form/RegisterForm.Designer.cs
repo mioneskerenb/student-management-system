@@ -1,7 +1,7 @@
 ﻿
 namespace Transparent_Form
 {
-    partial class RegisterForm
+    partial class ManageTeacherForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,40 +29,40 @@ namespace Transparent_Form
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.DataGridView_student = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dataGridView_teacher = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboBox_class = new System.Windows.Forms.ComboBox();
+            this.comboBox_classArm = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox_phone = new System.Windows.Forms.TextBox();
+            this.textBox_email = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button_add = new System.Windows.Forms.Button();
             this.button_clear = new System.Windows.Forms.Button();
-            this.button_upload = new System.Windows.Forms.Button();
-            this.pictureBox_student = new System.Windows.Forms.PictureBox();
-            this.textBox_address = new System.Windows.Forms.TextBox();
-            this.radioButton_female = new System.Windows.Forms.RadioButton();
-            this.radioButton_male = new System.Windows.Forms.RadioButton();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox_Lname = new System.Windows.Forms.TextBox();
+            this.textBox_password = new System.Windows.Forms.TextBox();
+            this.textBox_lname = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox_Fname = new System.Windows.Forms.TextBox();
+            this.textBox_fname = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox_search = new System.Windows.Forms.TextBox();
+            this.button_delete = new System.Windows.Forms.Button();
+            this.button_update = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_student)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_teacher)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_student)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.panel1.Controls.Add(this.textBox_search);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -77,80 +77,120 @@ namespace Transparent_Form
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(417, 13);
+            this.label7.Location = new System.Drawing.Point(43, 14);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(129, 25);
+            this.label7.Size = new System.Drawing.Size(165, 32);
             this.label7.TabIndex = 0;
             this.label7.Text = "Registration";
             // 
-            // DataGridView_student
+            // dataGridView_teacher
             // 
-            this.DataGridView_student.AllowUserToAddRows = false;
-            this.DataGridView_student.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.DataGridView_student.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.DataGridView_student.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridView_teacher.AllowUserToAddRows = false;
+            this.dataGridView_teacher.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dataGridView_teacher.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridView_teacher.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DataGridView_student.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DataGridView_student.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.DataGridView_student.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DataGridView_student.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.DataGridView_student.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridView_student.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.DataGridView_student.ColumnHeadersHeight = 24;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridView_student.DefaultCellStyle = dataGridViewCellStyle12;
-            this.DataGridView_student.EnableHeadersVisualStyles = false;
-            this.DataGridView_student.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.DataGridView_student.Location = new System.Drawing.Point(13, 57);
-            this.DataGridView_student.Name = "DataGridView_student";
-            this.DataGridView_student.RowHeadersVisible = false;
-            this.DataGridView_student.RowTemplate.Height = 80;
-            this.DataGridView_student.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridView_student.Size = new System.Drawing.Size(909, 299);
-            this.DataGridView_student.TabIndex = 3;
-         
-          
+            this.dataGridView_teacher.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_teacher.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dataGridView_teacher.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView_teacher.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridView_teacher.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_teacher.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridView_teacher.ColumnHeadersHeight = 24;
+            this.dataGridView_teacher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_teacher.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridView_teacher.EnableHeadersVisualStyles = false;
+            this.dataGridView_teacher.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dataGridView_teacher.Location = new System.Drawing.Point(13, 57);
+            this.dataGridView_teacher.Name = "dataGridView_teacher";
+            this.dataGridView_teacher.RowHeadersVisible = false;
+            this.dataGridView_teacher.RowHeadersWidth = 51;
+            this.dataGridView_teacher.RowTemplate.Height = 80;
+            this.dataGridView_teacher.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_teacher.Size = new System.Drawing.Size(909, 299);
+            this.dataGridView_teacher.TabIndex = 3;
+            this.dataGridView_teacher.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_teacher_CellDoubleClick);
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button_update);
+            this.panel2.Controls.Add(this.button_delete);
+            this.panel2.Controls.Add(this.comboBox_class);
+            this.panel2.Controls.Add(this.comboBox_classArm);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.textBox_phone);
+            this.panel2.Controls.Add(this.textBox_email);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.button_add);
             this.panel2.Controls.Add(this.button_clear);
-            this.panel2.Controls.Add(this.button_upload);
-            this.panel2.Controls.Add(this.pictureBox_student);
-            this.panel2.Controls.Add(this.textBox_address);
-            this.panel2.Controls.Add(this.radioButton_female);
-            this.panel2.Controls.Add(this.radioButton_male);
-            this.panel2.Controls.Add(this.dateTimePicker1);
-            this.panel2.Controls.Add(this.textBox_Lname);
+            this.panel2.Controls.Add(this.textBox_password);
+            this.panel2.Controls.Add(this.textBox_lname);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBox_Fname);
+            this.panel2.Controls.Add(this.textBox_fname);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 354);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(934, 259);
             this.panel2.TabIndex = 14;
+            // 
+            // comboBox_class
+            // 
+            this.comboBox_class.FormattingEnabled = true;
+            this.comboBox_class.Location = new System.Drawing.Point(461, 143);
+            this.comboBox_class.Name = "comboBox_class";
+            this.comboBox_class.Size = new System.Drawing.Size(121, 31);
+            this.comboBox_class.TabIndex = 36;
+            // 
+            // comboBox_classArm
+            // 
+            this.comboBox_classArm.FormattingEnabled = true;
+            this.comboBox_classArm.Location = new System.Drawing.Point(179, 143);
+            this.comboBox_classArm.Name = "comboBox_classArm";
+            this.comboBox_classArm.Size = new System.Drawing.Size(121, 31);
+            this.comboBox_classArm.TabIndex = 35;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.label3.Location = new System.Drawing.Point(330, 146);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 23);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "Class Arm :";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.label2.Location = new System.Drawing.Point(33, 146);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(140, 23);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "Select Class :";
             // 
             // panel3
             // 
@@ -162,13 +202,13 @@ namespace Transparent_Form
             this.panel3.Size = new System.Drawing.Size(909, 10);
             this.panel3.TabIndex = 32;
             // 
-            // textBox_phone
+            // textBox_email
             // 
-            this.textBox_phone.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox_phone.Location = new System.Drawing.Point(593, 21);
-            this.textBox_phone.Name = "textBox_phone";
-            this.textBox_phone.Size = new System.Drawing.Size(156, 27);
-            this.textBox_phone.TabIndex = 31;
+            this.textBox_email.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox_email.Location = new System.Drawing.Point(593, 21);
+            this.textBox_email.Name = "textBox_email";
+            this.textBox_email.Size = new System.Drawing.Size(156, 32);
+            this.textBox_email.TabIndex = 31;
             // 
             // label6
             // 
@@ -178,7 +218,7 @@ namespace Transparent_Form
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
             this.label6.Location = new System.Drawing.Point(519, 25);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 19);
+            this.label6.Size = new System.Drawing.Size(83, 23);
             this.label6.TabIndex = 30;
             this.label6.Text = "Phone :";
             // 
@@ -212,84 +252,22 @@ namespace Transparent_Form
             this.button_clear.UseVisualStyleBackColor = false;
             this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
             // 
-            // button_upload
+            // textBox_password
             // 
-            this.button_upload.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_upload.BackColor = System.Drawing.Color.Green;
-            this.button_upload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_upload.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_upload.ForeColor = System.Drawing.Color.White;
-            this.button_upload.Location = new System.Drawing.Point(807, 138);
-            this.button_upload.Name = "button_upload";
-            this.button_upload.Size = new System.Drawing.Size(118, 39);
-            this.button_upload.TabIndex = 27;
-            this.button_upload.Text = "Upload";
-            this.button_upload.UseVisualStyleBackColor = false;
-            this.button_upload.Click += new System.EventHandler(this.button_upload_Click);
+            this.textBox_password.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox_password.Location = new System.Drawing.Point(127, 80);
+            this.textBox_password.Multiline = true;
+            this.textBox_password.Name = "textBox_password";
+            this.textBox_password.Size = new System.Drawing.Size(624, 50);
+            this.textBox_password.TabIndex = 25;
             // 
-            // pictureBox_student
+            // textBox_lname
             // 
-            this.pictureBox_student.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox_student.BackColor = System.Drawing.Color.Gainsboro;
-            this.pictureBox_student.Location = new System.Drawing.Point(807, 22);
-            this.pictureBox_student.Name = "pictureBox_student";
-            this.pictureBox_student.Size = new System.Drawing.Size(118, 110);
-            this.pictureBox_student.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox_student.TabIndex = 26;
-            this.pictureBox_student.TabStop = false;
-            // 
-            // textBox_address
-            // 
-            this.textBox_address.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox_address.Location = new System.Drawing.Point(125, 124);
-            this.textBox_address.Multiline = true;
-            this.textBox_address.Name = "textBox_address";
-            this.textBox_address.Size = new System.Drawing.Size(624, 50);
-            this.textBox_address.TabIndex = 25;
-            // 
-            // radioButton_female
-            // 
-            this.radioButton_female.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.radioButton_female.AutoSize = true;
-            this.radioButton_female.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_female.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
-            this.radioButton_female.Location = new System.Drawing.Point(665, 74);
-            this.radioButton_female.Name = "radioButton_female";
-            this.radioButton_female.Size = new System.Drawing.Size(84, 23);
-            this.radioButton_female.TabIndex = 24;
-            this.radioButton_female.Text = "FeMale";
-            this.radioButton_female.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_male
-            // 
-            this.radioButton_male.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.radioButton_male.AutoSize = true;
-            this.radioButton_male.Checked = true;
-            this.radioButton_male.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton_male.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
-            this.radioButton_male.Location = new System.Drawing.Point(592, 74);
-            this.radioButton_male.Name = "radioButton_male";
-            this.radioButton_male.Size = new System.Drawing.Size(66, 23);
-            this.radioButton_male.TabIndex = 23;
-            this.radioButton_male.TabStop = true;
-            this.radioButton_male.Text = "Male";
-            this.radioButton_male.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker1.Location = new System.Drawing.Point(125, 72);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(291, 27);
-            this.dateTimePicker1.TabIndex = 22;
-            // 
-            // textBox_Lname
-            // 
-            this.textBox_Lname.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox_Lname.Location = new System.Drawing.Point(375, 21);
-            this.textBox_Lname.Name = "textBox_Lname";
-            this.textBox_Lname.Size = new System.Drawing.Size(135, 27);
-            this.textBox_Lname.TabIndex = 21;
+            this.textBox_lname.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox_lname.Location = new System.Drawing.Point(375, 21);
+            this.textBox_lname.Name = "textBox_lname";
+            this.textBox_lname.Size = new System.Drawing.Size(135, 32);
+            this.textBox_lname.TabIndex = 21;
             // 
             // label4
             // 
@@ -299,29 +277,17 @@ namespace Transparent_Form
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
             this.label4.Location = new System.Drawing.Point(271, 25);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 19);
+            this.label4.Size = new System.Drawing.Size(125, 23);
             this.label4.TabIndex = 20;
             this.label4.Text = "Last Name :";
             // 
-            // label2
+            // textBox_fname
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
-            this.label2.Location = new System.Drawing.Point(505, 76);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 19);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Gender :";
-            // 
-            // textBox_Fname
-            // 
-            this.textBox_Fname.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox_Fname.Location = new System.Drawing.Point(125, 21);
-            this.textBox_Fname.Name = "textBox_Fname";
-            this.textBox_Fname.Size = new System.Drawing.Size(140, 27);
-            this.textBox_Fname.TabIndex = 18;
+            this.textBox_fname.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox_fname.Location = new System.Drawing.Point(125, 21);
+            this.textBox_fname.Name = "textBox_fname";
+            this.textBox_fname.Size = new System.Drawing.Size(140, 32);
+            this.textBox_fname.TabIndex = 18;
             // 
             // label5
             // 
@@ -329,23 +295,11 @@ namespace Transparent_Form
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
-            this.label5.Location = new System.Drawing.Point(40, 124);
+            this.label5.Location = new System.Drawing.Point(21, 83);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 19);
+            this.label5.Size = new System.Drawing.Size(112, 23);
             this.label5.TabIndex = 16;
-            this.label5.Text = "Address :";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
-            this.label3.Location = new System.Drawing.Point(8, 76);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 19);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Date Of Birth :";
+            this.label5.Text = "Password :";
             // 
             // label1
             // 
@@ -355,31 +309,69 @@ namespace Transparent_Form
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
             this.label1.Location = new System.Drawing.Point(21, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 19);
+            this.label1.Size = new System.Drawing.Size(124, 23);
             this.label1.TabIndex = 15;
             this.label1.Text = "First Name :";
             // 
-            // RegisterForm
+            // textBox_search
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.textBox_search.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox_search.Location = new System.Drawing.Point(523, 12);
+            this.textBox_search.Name = "textBox_search";
+            this.textBox_search.Size = new System.Drawing.Size(361, 32);
+            this.textBox_search.TabIndex = 68;
+            this.textBox_search.TextChanged += new System.EventHandler(this.textBox_search_TextChanged_1);
+            // 
+            // button_delete
+            // 
+            this.button_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_delete.BackColor = System.Drawing.Color.Orange;
+            this.button_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_delete.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_delete.ForeColor = System.Drawing.Color.White;
+            this.button_delete.Location = new System.Drawing.Point(545, 208);
+            this.button_delete.Name = "button_delete";
+            this.button_delete.Size = new System.Drawing.Size(118, 39);
+            this.button_delete.TabIndex = 37;
+            this.button_delete.Text = "Delete";
+            this.button_delete.UseVisualStyleBackColor = false;
+            this.button_delete.Click += new System.EventHandler(this.button_delete_Click_1);
+            // 
+            // button_update
+            // 
+            this.button_update.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_update.BackColor = System.Drawing.Color.Orange;
+            this.button_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_update.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_update.ForeColor = System.Drawing.Color.White;
+            this.button_update.Location = new System.Drawing.Point(405, 208);
+            this.button_update.Name = "button_update";
+            this.button_update.Size = new System.Drawing.Size(118, 39);
+            this.button_update.TabIndex = 38;
+            this.button_update.Text = "Update";
+            this.button_update.UseVisualStyleBackColor = false;
+            this.button_update.Click += new System.EventHandler(this.button_update_Click);
+            // 
+            // ManageTeacherForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(934, 613);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.DataGridView_student);
+            this.Controls.Add(this.dataGridView_teacher);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "RegisterForm";
+            this.Name = "ManageTeacherForm";
             this.Text = "RegisterForm";
-            this.Load += new System.EventHandler(this.RegisterForm_Load);
+            this.Load += new System.EventHandler(this.ManageTeacherForm_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridView_student)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_teacher)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_student)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -387,25 +379,25 @@ namespace Transparent_Form
         #endregion
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView DataGridView_student;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox_phone;
+        private System.Windows.Forms.TextBox textBox_email;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button_add;
         private System.Windows.Forms.Button button_clear;
-        private System.Windows.Forms.Button button_upload;
-        private System.Windows.Forms.PictureBox pictureBox_student;
-        private System.Windows.Forms.TextBox textBox_address;
-        private System.Windows.Forms.RadioButton radioButton_female;
-        private System.Windows.Forms.RadioButton radioButton_male;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox_Lname;
+        private System.Windows.Forms.TextBox textBox_password;
+        private System.Windows.Forms.TextBox textBox_lname;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox_Fname;
+        private System.Windows.Forms.TextBox textBox_fname;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dataGridView_teacher;
+        private System.Windows.Forms.ComboBox comboBox_class;
+        private System.Windows.Forms.ComboBox comboBox_classArm;
+        private System.Windows.Forms.TextBox textBox_search;
+        private System.Windows.Forms.Button button_delete;
+        private System.Windows.Forms.Button button_update;
     }
 }

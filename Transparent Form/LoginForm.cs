@@ -14,11 +14,6 @@ namespace Transparent_Form
             InitializeComponent();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-            textBox_password.PasswordChar = '*';
-        }
-
         private void label6_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -31,23 +26,20 @@ namespace Transparent_Form
 
         private void label6_MouseLeave(object sender, EventArgs e)
         {
-            label6.ForeColor = Color.White;
+            label6.ForeColor = Color.Transparent;
         }
 
         private async void button_login_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox_usrname.Text) || string.IsNullOrWhiteSpace(textBox_password.Text))
+            if (string.IsNullOrWhiteSpace(textBox_usrname.Text) ||
+                string.IsNullOrWhiteSpace(textBox_password.Text))
             {
-<<<<<<< HEAD
                 MessageBox.Show(
                     "Please enter username and password.",
                     "Login Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
-=======
-                MessageBox.Show("Please enter username and password.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
->>>>>>> 0a7474ee9d7680b09bb5b19d8d989db90c66a6cc
                 return;
             }
 
@@ -69,16 +61,11 @@ namespace Transparent_Form
                     var content = new FormUrlEncodedContent(values);
 
                     HttpResponseMessage response = await client.PostAsync(
-<<<<<<< HEAD
                         "http://localhost/Student-Attendance-System01-main/api/login.php",
-=======
-                        "http://localhost/Student-Attendance-System01-main/Student-Attendance-System01-main/api/login.php",
->>>>>>> 0a7474ee9d7680b09bb5b19d8d989db90c66a6cc
                         content
                     );
 
                     string json = await response.Content.ReadAsStringAsync();
-<<<<<<< HEAD
 
                     if (!response.IsSuccessStatusCode)
                     {
@@ -102,19 +89,16 @@ namespace Transparent_Form
                         return;
                     }
 
-                    if (json.TrimStart().StartsWith("<"))
+                    if (!json.TrimStart().StartsWith("{"))
                     {
                         MessageBox.Show(
-                            "The API returned HTML instead of JSON.\n\nResponse:\n" + json,
-                            "Server Error",
+                            "Server did not return valid JSON.\n\nResponse:\n" + json,
+                            "Parse Error",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Error
                         );
                         return;
                     }
-=======
-                 
->>>>>>> 0a7474ee9d7680b09bb5b19d8d989db90c66a6cc
 
                     ApiLoginResponse result = JsonConvert.DeserializeObject<ApiLoginResponse>(json);
 
@@ -128,17 +112,12 @@ namespace Transparent_Form
                             SessionManager.UserName = result.data.firstName + " " + result.data.lastName;
                         }
 
-<<<<<<< HEAD
                         MessageBox.Show(
                             "Login successful!",
                             "Success",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information
                         );
-=======
-                        //   MessageBox.Show("Login successful!\n\nToken:\n" + SessionManager.Token, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
->>>>>>> 0a7474ee9d7680b09bb5b19d8d989db90c66a6cc
 
                         MainForm main = new MainForm();
                         this.Hide();
@@ -146,7 +125,6 @@ namespace Transparent_Form
                     }
                     else
                     {
-<<<<<<< HEAD
                         MessageBox.Show(
                             result?.message ?? "Login failed.",
                             "Login Failed",
@@ -174,21 +152,6 @@ namespace Transparent_Form
                     );
                 }
             }
-=======
-                        MessageBox.Show(result?.message ?? "Login failed.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Connection error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private void checkBox_showpass_CheckedChanged(object sender, EventArgs e)
-        {
-            textBox_password.PasswordChar = checkBox_showpass.Checked ? '\0' : '*';
->>>>>>> 0a7474ee9d7680b09bb5b19d8d989db90c66a6cc
         }
     }
 
