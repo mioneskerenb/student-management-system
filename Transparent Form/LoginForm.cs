@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net.Http;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
 
 namespace Transparent_Form
 {
     public partial class LoginForm : Form
     {
-        StudentClass student = new StudentClass();
         public LoginForm()
         {
             InitializeComponent();
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            textBox_password.PasswordChar = '*';
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -31,45 +31,93 @@ namespace Transparent_Form
 
         private void label6_MouseLeave(object sender, EventArgs e)
         {
-            label6.ForeColor = Color.Transparent;
+            label6.ForeColor = Color.White;
         }
 
-        private void button_login_Click(object sender, EventArgs e)
+        private async void button_login_Click(object sender, EventArgs e)
         {
-            MainForm main = new MainForm();
-            this.Hide();
-            main.Show();
-            /*if (textBox_usrname.Text == "" || textBox_password.Text == "")
+            if (string.IsNullOrWhiteSpace(textBox_usrname.Text) || string.IsNullOrWhiteSpace(textBox_password.Text))
             {
-                MessageBox.Show("Need login data", "Wrong Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter username and password.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else
+
+            string username = textBox_usrname.Text.Trim();
+            string password = textBox_password.Text.Trim();
+            string userType = "Administrator";
+
+            using (HttpClient client = new HttpClient())
             {
-                string uname = textBox_usrname.Text;
-                string pass = textBox_password.Text;
-
-                // ✅ FIX: use parameter + MD5
-                MySqlCommand command = new MySqlCommand(
-                    "SELECT * FROM `user` WHERE `username`=@u AND `password`=MD5(@p)"
-                );
-
-                command.Parameters.Add("@u", MySqlDbType.VarChar).Value = uname;
-                command.Parameters.Add("@p", MySqlDbType.VarChar).Value = pass;
-
-                DataTable table = student.getList(command);
-
-                if (table.Rows.Count > 0)
+                try
                 {
-                    MainForm main = new MainForm();
-                    this.Hide();
-                    main.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Wrong username or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }*/
+                    var values = new Dictionary<string, string>
+                    {
+                        { "username", username },
+                        { "password", password },
+                        { "userType", userType }
+                    };
 
+                    var content = new FormUrlEncodedContent(values);
+
+                    HttpResponseMessage response = await client.PostAsync(
+                        "http://localhost/Student-Attendance-System01-main/Student-Attendance-System01-main/api/login.php",
+                        content
+                    );
+
+                    string json = await response.Content.ReadAsStringAsync();
+                 
+
+                    ApiLoginResponse result = JsonConvert.DeserializeObject<ApiLoginResponse>(json);
+
+                    if (result != null && result.success)
+                    {
+                        SessionManager.Token = result.token;
+                        SessionManager.UserType = result.userType;
+
+                        if (result.data != null)
+                        {
+                            SessionManager.UserName = result.data.firstName + " " + result.data.lastName;
+                        }
+
+                        //   MessageBox.Show("Login successful!\n\nToken:\n" + SessionManager.Token, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        MainForm main = new MainForm();
+                        this.Hide();
+                        main.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show(result?.message ?? "Login failed.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Connection error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
+
+        private void checkBox_showpass_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox_password.PasswordChar = checkBox_showpass.Checked ? '\0' : '*';
+        }
+    }
+
+    public class ApiLoginResponse
+    {
+        public bool success { get; set; }
+        public string message { get; set; }
+        public string token { get; set; }
+        public string userType { get; set; }
+        public UserData data { get; set; }
+    }
+
+    public class UserData
+    {
+        public int Id { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string emailAddress { get; set; }
     }
 }
