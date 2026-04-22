@@ -622,6 +622,7 @@ namespace Transparent_Form
             this.label12.Size = new System.Drawing.Size(390, 23);
             this.label12.TabIndex = 0;
             this.label12.Text = "Mdemy International School, Myanmar";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // MainForm
             // 

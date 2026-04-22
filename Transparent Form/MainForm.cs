@@ -237,5 +237,10 @@ namespace Transparent_Form
             label_cmale.Text = "Male : " + countByCourseAndGender(selectedCourse, "Male");
             label_cfemale.Text = "Female : " + countByCourseAndGender(selectedCourse, "Female");
         }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
