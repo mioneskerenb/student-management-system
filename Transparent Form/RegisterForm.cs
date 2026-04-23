@@ -286,27 +286,7 @@ namespace Transparent_Form
             }
         }
 
-        private void textBox_search_TextChanged_1(object sender, EventArgs e)
-        {
-            string keyword = textBox_search.Text.Trim().ToLower();
-
-            if (string.IsNullOrEmpty(keyword))
-            {
-                dataGridView_teacher.DataSource = null;
-                dataGridView_teacher.DataSource = teacherList;
-                return;
-            }
-
-            var filtered = teacherList.FindAll(x =>
-                (!string.IsNullOrEmpty(x.firstName) && x.firstName.ToLower().Contains(keyword)) ||
-                (!string.IsNullOrEmpty(x.lastName) && x.lastName.ToLower().Contains(keyword)) ||
-                (!string.IsNullOrEmpty(x.emailAddress) && x.emailAddress.ToLower().Contains(keyword))
-            );
-
-            dataGridView_teacher.DataSource = null;
-            dataGridView_teacher.DataSource = filtered;
-        }
-
+        
         private async void button_delete_Click_1(object sender, EventArgs e)
         {
 

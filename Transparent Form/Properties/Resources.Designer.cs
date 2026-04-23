@@ -19,7 +19,7 @@ namespace Transparent_Form.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -63,6 +63,26 @@ namespace Transparent_Form.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _class {
+            get {
+                object obj = ResourceManager.GetObject("class", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap audience {
+            get {
+                object obj = ResourceManager.GetObject("audience", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap classroom_50coverpx {
             get {
                 object obj = ResourceManager.GetObject("classroom_50coverpx", resourceCulture);
@@ -86,6 +106,26 @@ namespace Transparent_Form.Properties {
         internal static System.Drawing.Bitmap classroomblue_50px {
             get {
                 object obj = ResourceManager.GetObject("classroomblue_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap conditions {
+            get {
+                object obj = ResourceManager.GetObject("conditions", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap connection {
+            get {
+                object obj = ResourceManager.GetObject("connection", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,6 +173,16 @@ namespace Transparent_Form.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap immigration {
+            get {
+                object obj = ResourceManager.GetObject("immigration", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pinterest_profile_image {
             get {
                 object obj = ResourceManager.GetObject("pinterest_profile_image", resourceCulture);
@@ -156,6 +206,26 @@ namespace Transparent_Form.Properties {
         internal static System.Drawing.Bitmap student {
             get {
                 object obj = ResourceManager.GetObject("student", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap training {
+            get {
+                object obj = ResourceManager.GetObject("training", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap virtual_event {
+            get {
+                object obj = ResourceManager.GetObject("virtual-event", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -12,6 +12,7 @@ namespace Transparent_Form
     public partial class ManageCourseForm : Form
     {
         CourseClass course = new CourseClass();
+        private int selectedClassId = 0;
 
         public ManageCourseForm()
         {
@@ -22,8 +23,13 @@ namespace Transparent_Form
         {
             await LoadClassesFromApi();
         }
-
-        private async Task LoadClassesFromApi()
+        private void SetButtonState(bool hasSelection)
+        {
+            button_update.Enabled = hasSelection;
+            button_delete.Enabled = hasSelection;
+            button_save.Enabled = !hasSelection;
+        }
+        private async Task LoadClassesFromApi(string search = "")
         {
             using (HttpClient client = new HttpClient())
             {
@@ -44,6 +50,11 @@ namespace Transparent_Form
                         new AuthenticationHeaderValue("Bearer", SessionManager.Token);
 
                     string url = "http://localhost/Student-Attendance-System01-main/api/classes.php";
+
+                    if (!string.IsNullOrWhiteSpace(search))
+                    {
+                        url += "?search=" + Uri.EscapeDataString(search);
+                    }
 
                     HttpResponseMessage response = await client.GetAsync(url);
                     string json = await response.Content.ReadAsStringAsync();
@@ -225,13 +236,7 @@ namespace Transparent_Form
             }
         }
 
-        private void DataGridView_class_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (DataGridView_class.CurrentRow != null)
-            {
-                textBox_className.Text = DataGridView_class.CurrentRow.Cells["className"].Value?.ToString();
-            }
-        }
+      
 
         private void ClearFields()
         {
@@ -243,6 +248,182 @@ namespace Transparent_Form
         {
             ClearFields();
         }
+
+        private async void button_update_Click(object sender, EventArgs e)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    if (selectedClassId == 0)
+                    {
+                        MessageBox.Show("Please select a class first.");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(SessionManager.Token))
+                    {
+                        MessageBox.Show("No token found. Please login again.");
+                        return;
+                    }
+
+                    if (string.IsNullOrWhiteSpace(textBox_className.Text))
+                    {
+                        MessageBox.Show("Please enter class name.");
+                        return;
+                    }
+
+                    client.DefaultRequestHeaders.Authorization =
+                        new AuthenticationHeaderValue("Bearer", SessionManager.Token);
+
+                    var values = new Dictionary<string, string>
+                    {
+                        { "id", selectedClassId.ToString() },
+                        { "className", textBox_className.Text.Trim() }
+                    };
+
+                    var content = new FormUrlEncodedContent(values);
+
+                    string url = "http://localhost/Student-Attendance-System01-main/api/update_class.php";
+
+                    HttpResponseMessage response = await client.PostAsync(url, content);
+                    string json = await response.Content.ReadAsStringAsync();
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show(
+                            "HTTP Error: " + response.StatusCode + "\n\nResponse:\n" + json,
+                            "Server Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                        return;
+                    }
+
+                    ApiMessageResponse result = JsonConvert.DeserializeObject<ApiMessageResponse>(json);
+
+                    if (result != null && result.success)
+                    {
+                        MessageBox.Show(result.message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearFields();
+                        await LoadClassesFromApi();
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            result?.message ?? "Failed to update class.",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Connection error: " + ex.Message);
+                }
+            }
+        }
+
+        private async void button_delete_Click(object sender, EventArgs e)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    if (selectedClassId == 0)
+                    {
+                        MessageBox.Show("Please select a class first.");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(SessionManager.Token))
+                    {
+                        MessageBox.Show("No token found. Please login again.");
+                        return;
+                    }
+
+                    DialogResult confirm = MessageBox.Show(
+                        "Are you sure you want to delete this class?",
+                        "Confirm Delete",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                    if (confirm != DialogResult.Yes)
+                        return;
+
+                    client.DefaultRequestHeaders.Authorization =
+                        new AuthenticationHeaderValue("Bearer", SessionManager.Token);
+
+                    var values = new Dictionary<string, string>
+                    {
+                        { "id", selectedClassId.ToString() }
+                    };
+
+                    var content = new FormUrlEncodedContent(values);
+
+                    string url = "http://localhost/Student-Attendance-System01-main/api/delete_class.php";
+
+                    HttpResponseMessage response = await client.PostAsync(url, content);
+                    string json = await response.Content.ReadAsStringAsync();
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show(
+                            "HTTP Error: " + response.StatusCode + "\n\nResponse:\n" + json,
+                            "Server Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                        return;
+                    }
+
+                    ApiMessageResponse result = JsonConvert.DeserializeObject<ApiMessageResponse>(json);
+
+                    if (result != null && result.success)
+                    {
+                        MessageBox.Show(result.message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearFields();
+                        await LoadClassesFromApi();
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            result?.message ?? "Failed to delete class.",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Connection error: " + ex.Message);
+                }
+            }
+        }
+
+        private async void button_search_Click(object sender, EventArgs e)
+        {
+            await LoadClassesFromApi(textBox_search.Text);
+        }
+
+        private async void textBox_search_TextChanged(object sender, EventArgs e)
+        {
+            await LoadClassesFromApi(textBox_search.Text);
+        }
+
+        private void DataGridView_class_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = DataGridView_class.Rows[e.RowIndex];
+
+                selectedClassId = Convert.ToInt32(row.Cells["Id"].Value);
+                textBox_className.Text = row.Cells["className"].Value?.ToString();
+            }
+        }
     }
 
     public class ClassApiResponse
@@ -252,7 +433,5 @@ namespace Transparent_Form
         public string message { get; set; }
     }
 
-    
 
-  
 }

@@ -1,169 +1,216 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 
 namespace Transparent_Form
 {
     public partial class MainForm : Form
     {
-        StudentClass student = new StudentClass();
-        CourseClass course = new CourseClass();
         public MainForm()
         {
             InitializeComponent();
             customizeDesign();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private async void MainForm_Load(object sender, EventArgs e)
         {
-            studentCount();
-            //populate the combobox with courses name
-            comboBox_course.DataSource = course.getCourse(new MySqlCommand("SELECT * FROM `course`"));
-            comboBox_course.DisplayMember = "CourseName";
-            comboBox_course.ValueMember = "CourseName";
+            await LoadDashboardStats();
         }
 
-        //create a function to display student count
-        private void studentCount()
+        private async Task LoadDashboardStats()
         {
-            //Display the values
-            label_totalStd.Text = "Total Students : " + student.totalStudent();
-            label_maleStd.Text = "Male : " + student.maleStudent();
-            label_femaleStd.Text = "Female : " + student.femaleStudent();
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    if (string.IsNullOrEmpty(SessionManager.Token))
+                    {
+                        MessageBox.Show(
+                            "No token found. Please login again.",
+                            "Authentication Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning
+                        );
+                        return;
+                    }
 
+                    client.DefaultRequestHeaders.Authorization =
+                        new AuthenticationHeaderValue("Bearer", SessionManager.Token);
+
+                    string url = "http://localhost/Student-Attendance-System01-main/api/dashboard_stats.php";
+
+                    HttpResponseMessage response = await client.GetAsync(url);
+                    string json = await response.Content.ReadAsStringAsync();
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show(
+                            "HTTP Error: " + response.StatusCode + "\n\nResponse:\n" + json,
+                            "Server Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                        return;
+                    }
+
+                    if (string.IsNullOrWhiteSpace(json) || json.TrimStart().StartsWith("<"))
+                    {
+                        MessageBox.Show(
+                            "Invalid response from dashboard stats API.\n\n" + json,
+                            "Server Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                        return;
+                    }
+
+                    DashboardStatsResponse result = JsonConvert.DeserializeObject<DashboardStatsResponse>(json);
+
+                    if (result != null && result.success && result.data != null)
+                    {
+                        label_studentsCount.Text = result.data.students.ToString();
+                        label_classesCount.Text = result.data.classes.ToString();
+                        label_classArmsCount.Text = result.data.classArms.ToString();
+                        label_attendanceCount.Text = result.data.totalAttendance.ToString();
+                        label_classTeachersCount.Text = result.data.classTeachers.ToString();
+                        label_sessionTermsCount.Text = result.data.sessionTerms.ToString();
+                        label_termsCount.Text = result.data.terms.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            result?.message ?? "Failed to load dashboard statistics.",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        "Error loading dashboard statistics: " + ex.Message,
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                }
+            }
         }
-
 
         private void customizeDesign()
         {
             panel_stdsubmenu.Visible = false;
             panel_courseSubmenu.Visible = false;
             panel_scoreSubmenu.Visible = false;
-        
         }
 
         private void hideSubmenu()
         {
-            if (panel_stdsubmenu.Visible == true)
+            if (panel_stdsubmenu.Visible)
                 panel_stdsubmenu.Visible = false;
-            if (panel_courseSubmenu.Visible == true)
+
+            if (panel_courseSubmenu.Visible)
                 panel_courseSubmenu.Visible = false;
-            if (panel_scoreSubmenu.Visible == true)
+
+            if (panel_scoreSubmenu.Visible)
                 panel_scoreSubmenu.Visible = false;
         }
 
         private void showSubmenu(Panel submenu)
         {
-            if (submenu.Visible == false)
+            if (!submenu.Visible)
             {
                 hideSubmenu();
                 submenu.Visible = true;
             }
             else
+            {
                 submenu.Visible = false;
+            }
         }
 
         private void button_std_Click(object sender, EventArgs e)
         {
             showSubmenu(panel_stdsubmenu);
         }
+
         #region StdSubmenu
+
         private void button_registration_Click(object sender, EventArgs e)
         {
             openChildForm(new ManageTeacherForm());
-            //...
-            //..Your code
-            //...
             hideSubmenu();
-            
         }
 
-        private void button_manageStd_Click(object sender, EventArgs e)
+        private async void button_manageStd_Click(object sender, EventArgs e)
         {
             openChildForm(new ManageStudentForm());
-            //...
-            //..Your code
-            //...
             hideSubmenu();
+            await LoadDashboardStats();
         }
 
         private void button_status_Click(object sender, EventArgs e)
         {
-            //...
-            //..Your code
-            //...
             hideSubmenu();
         }
 
         private void button_stdPrint_Click(object sender, EventArgs e)
         {
             openChildForm(new PrintStudent());
-            //...
-            //..Your code
-            //...
             hideSubmenu();
         }
 
-        #endregion StdSubmenu
+        #endregion
+
         private void button_course_Click(object sender, EventArgs e)
         {
             showSubmenu(panel_courseSubmenu);
         }
+
         #region CourseSubmenu
-        private void button_newCourse_Click(object sender, EventArgs e)
+
+        private async void button_newCourse_Click(object sender, EventArgs e)
         {
             openChildForm(new ManageCourseForm());
-            //...
-            //..Your code
-            //...
             hideSubmenu();
+            await LoadDashboardStats();
         }
 
-        private void button_manageCourse_Click(object sender, EventArgs e)
+        private async void button_manageCourse_Click(object sender, EventArgs e)
         {
             openChildForm(new CourseForm());
-            //...
-            //..Your code
-            //...
             hideSubmenu();
+            await LoadDashboardStats();
         }
 
         private void button_coursePrint_Click(object sender, EventArgs e)
         {
             openChildForm(new PrintCourseForm());
-            //...
-            //..Your code
-            //...
             hideSubmenu();
         }
-        #endregion CourseSubmenu
+
+        #endregion
 
         private void button_score_Click(object sender, EventArgs e)
         {
             showSubmenu(panel_scoreSubmenu);
         }
+
         #region ScoreSubmenu
+
         private void button_newScore_Click(object sender, EventArgs e)
         {
             openChildForm(new ScoreForm());
-            //...
-            //..Your code
-            //...
             hideSubmenu();
         }
 
         private void button_manageScore_Click(object sender, EventArgs e)
         {
             openChildForm(new ManageScoreForm());
-            
             hideSubmenu();
         }
 
@@ -173,15 +220,15 @@ namespace Transparent_Form
             hideSubmenu();
         }
 
+        #endregion
 
-        #endregion ScoreSubmenu
-
-        //to show register form in mainform
         private Form activeForm = null;
+
         private void openChildForm(Form childForm)
         {
             if (activeForm != null)
                 activeForm.Close();
+
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -190,15 +237,15 @@ namespace Transparent_Form
             panel_main.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-            
         }
 
         private void button_exit_Click(object sender, EventArgs e)
         {
             if (activeForm != null)
                 activeForm.Close();
+
             panel_main.Controls.Add(panel_cover);
-            studentCount();
+            panel_cover.BringToFront();
         }
 
         private void button_exit_Click_1(object sender, EventArgs e)
@@ -208,39 +255,30 @@ namespace Transparent_Form
             login.Show();
         }
 
-        private string countByCourseAndGender(string courseName, string gender)
-        {
-            MySqlCommand command = new MySqlCommand(
-                "SELECT COUNT(*) " +
-                "FROM student " +
-                "INNER JOIN score ON score.StdId = student.StdId " +
-                "INNER JOIN course ON score.CourseId = course.CourseId " +
-                "WHERE course.CourseName = @courseName AND student.Gender = @gender"
-            );
-
-            command.Parameters.Add("@courseName", MySqlDbType.VarChar).Value = courseName;
-            command.Parameters.Add("@gender", MySqlDbType.VarChar).Value = gender;
-
-            command.Connection = new DBconnect().getconnection;
-            DBconnect db = new DBconnect();
-            command.Connection = db.getconnection;
-            db.openConnect();
-            string count = command.ExecuteScalar().ToString();
-            db.closeConnect();
-
-            return count;
-        }
-        private void comboBox_course_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedCourse = comboBox_course.Text;
-
-            label_cmale.Text = "Male : " + countByCourseAndGender(selectedCourse, "Male");
-            label_cfemale.Text = "Female : " + countByCourseAndGender(selectedCourse, "Female");
-        }
-
         private void label12_Click(object sender, EventArgs e)
         {
-
         }
+
+        private void panel_scoreSubmenu_Paint(object sender, PaintEventArgs e)
+        {
+        }
+    }
+
+    public class DashboardStatsResponse
+    {
+        public bool success { get; set; }
+        public DashboardStatsData data { get; set; }
+        public string message { get; set; }
+    }
+
+    public class DashboardStatsData
+    {
+        public int students { get; set; }
+        public int classes { get; set; }
+        public int classArms { get; set; }
+        public int totalAttendance { get; set; }
+        public int classTeachers { get; set; }
+        public int sessionTerms { get; set; }
+        public int terms { get; set; }
     }
 }

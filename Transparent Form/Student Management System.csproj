@@ -277,6 +277,13 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="Notepad.gitignore" />
+    <None Include="Resources\conditions.png" />
+    <None Include="Resources\class.png" />
+    <None Include="Resources\training.png" />
+    <None Include="Resources\immigration.png" />
+    <None Include="Resources\connection.png" />
+    <None Include="Resources\virtual-event.png" />
+    <None Include="Resources\audience.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

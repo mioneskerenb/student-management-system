@@ -18,21 +18,13 @@ namespace Transparent_Form
     public partial class CourseForm : Form
     {
         CourseClass course = new CourseClass();
+        private int selectedClassArmId = 0;
         public CourseForm()
         {
             InitializeComponent();
         }
 
-        private void button_add_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void button_clear_Click(object sender, EventArgs e)
-        {
-            
-           
-        }
+    
 
         private async void CourseForm_Load(object sender, EventArgs e)
         {
@@ -108,7 +100,7 @@ namespace Transparent_Form
             }
         }
 
-        private async Task LoadClassArms()
+        private async Task LoadClassArms(string search = "")
         {
             using (HttpClient client = new HttpClient())
             {
@@ -127,6 +119,11 @@ namespace Transparent_Form
                         new AuthenticationHeaderValue("Bearer", SessionManager.Token);
 
                     string url = "http://localhost/Student-Attendance-System01-main/api/classarms.php";
+
+                    if (!string.IsNullOrWhiteSpace(search))
+                    {
+                        url += "?search=" + Uri.EscapeDataString(search);
+                    }
                     HttpResponseMessage response = await client.GetAsync(url);
                     string json = await response.Content.ReadAsStringAsync();
 
@@ -277,5 +274,15 @@ namespace Transparent_Form
             public List<ClassArmItem> data { get; set; }
             public string message { get; set; }
         }
+        public int classId { get; set; }
+    
+        private void ClearFields()
+        {
+            selectedClassArmId = 0;
+            textBox_classArmName.Clear();
+            comboBox_class.SelectedIndex = -1;
+        }
+
+      
     }
 }

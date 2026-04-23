@@ -39,9 +39,10 @@ namespace Transparent_Form
             this.DataGridView_classArm = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox_class = new System.Windows.Forms.ComboBox();
             this.button_saveClassArm = new System.Windows.Forms.Button();
+            this.button_clear = new System.Windows.Forms.Button();
+            this.comboBox_class = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_classArm)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -52,7 +53,7 @@ namespace Transparent_Form
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
-            this.panel3.Location = new System.Drawing.Point(13, 3);
+            this.panel3.Location = new System.Drawing.Point(13, 322);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(909, 10);
             this.panel3.TabIndex = 32;
@@ -122,13 +123,13 @@ namespace Transparent_Form
             this.DataGridView_classArm.DefaultCellStyle = dataGridViewCellStyle3;
             this.DataGridView_classArm.EnableHeadersVisualStyles = false;
             this.DataGridView_classArm.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.DataGridView_classArm.Location = new System.Drawing.Point(13, 57);
+            this.DataGridView_classArm.Location = new System.Drawing.Point(13, 338);
             this.DataGridView_classArm.Name = "DataGridView_classArm";
             this.DataGridView_classArm.RowHeadersVisible = false;
             this.DataGridView_classArm.RowHeadersWidth = 51;
             this.DataGridView_classArm.RowTemplate.Height = 80;
             this.DataGridView_classArm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridView_classArm.Size = new System.Drawing.Size(909, 299);
+            this.DataGridView_classArm.Size = new System.Drawing.Size(909, 263);
             this.DataGridView_classArm.TabIndex = 15;
             // 
             // label7
@@ -144,17 +145,54 @@ namespace Transparent_Form
             // 
             // panel2
             // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.Controls.Add(this.button_saveClassArm);
+            this.panel2.Controls.Add(this.button_clear);
             this.panel2.Controls.Add(this.comboBox_class);
-            this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.textBox_classArmName);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 354);
+            this.panel2.Location = new System.Drawing.Point(0, 57);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(934, 259);
             this.panel2.TabIndex = 17;
+            // 
+            // button_saveClassArm
+            // 
+            this.button_saveClassArm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_saveClassArm.BackColor = System.Drawing.Color.DarkGreen;
+            this.button_saveClassArm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_saveClassArm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_saveClassArm.ForeColor = System.Drawing.Color.White;
+            this.button_saveClassArm.Location = new System.Drawing.Point(463, 153);
+            this.button_saveClassArm.Name = "button_saveClassArm";
+            this.button_saveClassArm.Size = new System.Drawing.Size(118, 39);
+            this.button_saveClassArm.TabIndex = 34;
+            this.button_saveClassArm.Text = "Save";
+            this.button_saveClassArm.UseVisualStyleBackColor = false;
+            this.button_saveClassArm.Click += new System.EventHandler(this.button_saveClassArm_Click);
+            // 
+            // button_clear
+            // 
+            this.button_clear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_clear.BackColor = System.Drawing.Color.Orange;
+            this.button_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_clear.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_clear.ForeColor = System.Drawing.Color.White;
+            this.button_clear.Location = new System.Drawing.Point(617, 153);
+            this.button_clear.Name = "button_clear";
+            this.button_clear.Size = new System.Drawing.Size(118, 39);
+            this.button_clear.TabIndex = 35;
+            this.button_clear.Text = "Clear";
+            this.button_clear.UseVisualStyleBackColor = false;
+            // 
+            // comboBox_class
+            // 
+            this.comboBox_class.FormattingEnabled = true;
+            this.comboBox_class.Location = new System.Drawing.Point(27, 50);
+            this.comboBox_class.Name = "comboBox_class";
+            this.comboBox_class.Size = new System.Drawing.Size(289, 31);
+            this.comboBox_class.TabIndex = 33;
             // 
             // panel1
             // 
@@ -168,37 +206,15 @@ namespace Transparent_Form
             this.panel1.Size = new System.Drawing.Size(934, 51);
             this.panel1.TabIndex = 16;
             // 
-            // comboBox_class
-            // 
-            this.comboBox_class.FormattingEnabled = true;
-            this.comboBox_class.Location = new System.Drawing.Point(27, 50);
-            this.comboBox_class.Name = "comboBox_class";
-            this.comboBox_class.Size = new System.Drawing.Size(289, 31);
-            this.comboBox_class.TabIndex = 33;
-            // 
-            // button_saveClassArm
-            // 
-            this.button_saveClassArm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_saveClassArm.BackColor = System.Drawing.Color.Orange;
-            this.button_saveClassArm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_saveClassArm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_saveClassArm.ForeColor = System.Drawing.Color.White;
-            this.button_saveClassArm.Location = new System.Drawing.Point(487, 68);
-            this.button_saveClassArm.Name = "button_saveClassArm";
-            this.button_saveClassArm.Size = new System.Drawing.Size(118, 39);
-            this.button_saveClassArm.TabIndex = 34;
-            this.button_saveClassArm.Text = "Save";
-            this.button_saveClassArm.UseVisualStyleBackColor = false;
-            this.button_saveClassArm.Click += new System.EventHandler(this.button_saveClassArm_Click);
-            // 
             // CourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 613);
-            this.Controls.Add(this.DataGridView_classArm);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.DataGridView_classArm);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "CourseForm";
@@ -226,5 +242,6 @@ namespace Transparent_Form
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox comboBox_class;
         private System.Windows.Forms.Button button_saveClassArm;
+        private System.Windows.Forms.Button button_clear;
     }
 }

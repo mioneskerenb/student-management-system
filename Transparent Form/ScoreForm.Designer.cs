@@ -29,9 +29,9 @@ namespace Transparent_Form
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button_save = new System.Windows.Forms.Button();
             this.button_clear = new System.Windows.Forms.Button();
@@ -39,13 +39,13 @@ namespace Transparent_Form
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView_sessionTerm = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button_activate = new System.Windows.Forms.Button();
+            this.button_delete = new System.Windows.Forms.Button();
             this.button_update = new System.Windows.Forms.Button();
             this.comboBox_term = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.button_delete = new System.Windows.Forms.Button();
-            this.button_activate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_sessionTerm)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -68,11 +68,11 @@ namespace Transparent_Form
             this.button_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_save.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_save.ForeColor = System.Drawing.Color.White;
-            this.button_save.Location = new System.Drawing.Point(808, 212);
+            this.button_save.Location = new System.Drawing.Point(410, 176);
             this.button_save.Name = "button_save";
             this.button_save.Size = new System.Drawing.Size(118, 39);
             this.button_save.TabIndex = 29;
-            this.button_save.Text = "Add";
+            this.button_save.Text = "Save";
             this.button_save.UseVisualStyleBackColor = false;
             this.button_save.Click += new System.EventHandler(this.button_save_Click);
             // 
@@ -83,7 +83,7 @@ namespace Transparent_Form
             this.button_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_clear.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_clear.ForeColor = System.Drawing.Color.White;
-            this.button_clear.Location = new System.Drawing.Point(684, 212);
+            this.button_clear.Location = new System.Drawing.Point(667, 176);
             this.button_clear.Name = "button_clear";
             this.button_clear.Size = new System.Drawing.Size(118, 39);
             this.button_clear.TabIndex = 28;
@@ -115,8 +115,8 @@ namespace Transparent_Form
             // 
             this.dataGridView_sessionTerm.AllowUserToAddRows = false;
             this.dataGridView_sessionTerm.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.dataGridView_sessionTerm.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dataGridView_sessionTerm.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_sessionTerm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -125,26 +125,26 @@ namespace Transparent_Form
             this.dataGridView_sessionTerm.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_sessionTerm.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridView_sessionTerm.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_sessionTerm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_sessionTerm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView_sessionTerm.ColumnHeadersHeight = 24;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_sessionTerm.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_sessionTerm.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView_sessionTerm.EnableHeadersVisualStyles = false;
             this.dataGridView_sessionTerm.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dataGridView_sessionTerm.Location = new System.Drawing.Point(13, 52);
+            this.dataGridView_sessionTerm.Location = new System.Drawing.Point(3, 310);
             this.dataGridView_sessionTerm.Name = "dataGridView_sessionTerm";
             this.dataGridView_sessionTerm.RowHeadersVisible = false;
             this.dataGridView_sessionTerm.RowHeadersWidth = 51;
@@ -156,6 +156,7 @@ namespace Transparent_Form
             // 
             // panel2
             // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.Controls.Add(this.button_activate);
             this.panel2.Controls.Add(this.button_delete);
             this.panel2.Controls.Add(this.button_update);
@@ -166,20 +167,49 @@ namespace Transparent_Form
             this.panel2.Controls.Add(this.textBox_sessionName);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 354);
+            this.panel2.Location = new System.Drawing.Point(0, 57);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(934, 259);
             this.panel2.TabIndex = 20;
             // 
+            // button_activate
+            // 
+            this.button_activate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_activate.BackColor = System.Drawing.Color.LimeGreen;
+            this.button_activate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_activate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_activate.ForeColor = System.Drawing.Color.White;
+            this.button_activate.Location = new System.Drawing.Point(286, 176);
+            this.button_activate.Name = "button_activate";
+            this.button_activate.Size = new System.Drawing.Size(118, 39);
+            this.button_activate.TabIndex = 36;
+            this.button_activate.Text = "Activate";
+            this.button_activate.UseVisualStyleBackColor = false;
+            this.button_activate.Click += new System.EventHandler(this.button_activate_Click_1);
+            // 
+            // button_delete
+            // 
+            this.button_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_delete.BackColor = System.Drawing.Color.Crimson;
+            this.button_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_delete.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_delete.ForeColor = System.Drawing.Color.White;
+            this.button_delete.Location = new System.Drawing.Point(791, 176);
+            this.button_delete.Name = "button_delete";
+            this.button_delete.Size = new System.Drawing.Size(118, 39);
+            this.button_delete.TabIndex = 35;
+            this.button_delete.Text = "Delete";
+            this.button_delete.UseVisualStyleBackColor = false;
+            this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
+            // 
             // button_update
             // 
             this.button_update.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_update.BackColor = System.Drawing.Color.Orange;
+            this.button_update.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.button_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_update.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_update.ForeColor = System.Drawing.Color.White;
-            this.button_update.Location = new System.Drawing.Point(560, 208);
+            this.button_update.Location = new System.Drawing.Point(543, 176);
             this.button_update.Name = "button_update";
             this.button_update.Size = new System.Drawing.Size(118, 39);
             this.button_update.TabIndex = 34;
@@ -223,43 +253,13 @@ namespace Transparent_Form
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label3.Location = new System.Drawing.Point(44, 9);
+            this.label3.Location = new System.Drawing.Point(344, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(208, 23);
+            this.label3.Size = new System.Drawing.Size(291, 34);
             this.label3.TabIndex = 34;
             this.label3.Text = "All Session and Term";
-            // 
-            // button_delete
-            // 
-            this.button_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_delete.BackColor = System.Drawing.Color.Orange;
-            this.button_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_delete.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_delete.ForeColor = System.Drawing.Color.White;
-            this.button_delete.Location = new System.Drawing.Point(684, 151);
-            this.button_delete.Name = "button_delete";
-            this.button_delete.Size = new System.Drawing.Size(118, 39);
-            this.button_delete.TabIndex = 35;
-            this.button_delete.Text = "Delete";
-            this.button_delete.UseVisualStyleBackColor = false;
-            this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
-            // 
-            // button_activate
-            // 
-            this.button_activate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_activate.BackColor = System.Drawing.Color.Orange;
-            this.button_activate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_activate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_activate.ForeColor = System.Drawing.Color.White;
-            this.button_activate.Location = new System.Drawing.Point(547, 151);
-            this.button_activate.Name = "button_activate";
-            this.button_activate.Size = new System.Drawing.Size(118, 39);
-            this.button_activate.TabIndex = 36;
-            this.button_activate.Text = "Activate";
-            this.button_activate.UseVisualStyleBackColor = false;
-            this.button_activate.Click += new System.EventHandler(this.button_activate_Click_1);
             // 
             // ScoreForm
             // 
