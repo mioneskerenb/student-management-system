@@ -101,7 +101,7 @@ namespace Transparent_Form
             this.panel_slide.Location = new System.Drawing.Point(0, 0);
             this.panel_slide.Margin = new System.Windows.Forms.Padding(5);
             this.panel_slide.Name = "panel_slide";
-            this.panel_slide.Size = new System.Drawing.Size(200, 613);
+            this.panel_slide.Size = new System.Drawing.Size(200, 603);
             this.panel_slide.TabIndex = 0;
             // 
             // button_exit
@@ -193,7 +193,7 @@ namespace Transparent_Form
             this.button_newScore.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.button_newScore.Size = new System.Drawing.Size(179, 50);
             this.button_newScore.TabIndex = 0;
-            this.button_newScore.Text = "New Score";
+            this.button_newScore.Text = "Session Term";
             this.button_newScore.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_newScore.UseVisualStyleBackColor = true;
             this.button_newScore.Click += new System.EventHandler(this.button_newScore_Click);
@@ -420,7 +420,7 @@ namespace Transparent_Form
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(200, 0);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(934, 613);
+            this.panel_main.Size = new System.Drawing.Size(934, 603);
             this.panel_main.TabIndex = 1;
             // 
             // panel_cover
@@ -432,14 +432,14 @@ namespace Transparent_Form
             this.panel_cover.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_cover.Location = new System.Drawing.Point(0, 0);
             this.panel_cover.Name = "panel_cover";
-            this.panel_cover.Size = new System.Drawing.Size(934, 613);
+            this.panel_cover.Size = new System.Drawing.Size(934, 603);
             this.panel_cover.TabIndex = 0;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Image = global::Transparent_Form.Properties.Resources.cover31;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 144);
+            this.pictureBox2.Location = new System.Drawing.Point(0, 139);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(934, 372);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -457,7 +457,7 @@ namespace Transparent_Form
             this.panel3.Controls.Add(this.label_maleStd);
             this.panel3.Controls.Add(this.label_totalStd);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 519);
+            this.panel3.Location = new System.Drawing.Point(0, 509);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(934, 94);
             this.panel3.TabIndex = 2;
@@ -628,7 +628,7 @@ namespace Transparent_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 613);
+            this.ClientSize = new System.Drawing.Size(1134, 603);
             this.Controls.Add(this.panel_main);
             this.Controls.Add(this.panel_slide);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
