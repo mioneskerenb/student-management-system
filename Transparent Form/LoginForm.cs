@@ -113,11 +113,12 @@ namespace Transparent_Form
                         }
 
                         MessageBox.Show(
-                            "Login successful!",
-                            "Success",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information
-                        );
+                          "Login successful!\n\nToken:\n" + SessionManager.Token,
+                          "Success",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Information
+  );
+  
 
                         MainForm main = new MainForm();
                         this.Hide();

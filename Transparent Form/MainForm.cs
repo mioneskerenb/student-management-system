@@ -250,7 +250,15 @@ namespace Transparent_Form
 
         private void button_exit_Click_1(object sender, EventArgs e)
         {
+
             LoginForm login = new LoginForm();
+            SessionManager.Token = null;
+            SessionManager.UserType = null;
+            SessionManager.UserName = null;
+
+        
+            this.Hide();
+            login.Show();
             this.Hide();
             login.Show();
         }
