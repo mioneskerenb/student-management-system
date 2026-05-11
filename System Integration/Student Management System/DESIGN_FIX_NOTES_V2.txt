@@ -1,0 +1,10 @@
+DESIGN FIX NOTES V2
+
+Fixed issues visible in the latest screenshot:
+1. Sidebar logo/header text was too large and clipped. The sidebar header is now sized correctly.
+2. Form fields were arranged using old Top/Left positions, causing wrong order such as Last Name appearing before First Name. Fields now use a logical order.
+3. Some labels overlapped or appeared between controls, especially Password/Confirm Password. Labels are now placed above their matching inputs.
+4. Embedded forms now keep the clean layout when the main window is resized.
+5. UI improvements remain design-only. CRUD, API, database, and button event logic were not changed.
+
+Open Transparent Form.sln, build, and run.

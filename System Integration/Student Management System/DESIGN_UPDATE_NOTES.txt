@@ -1,0 +1,22 @@
+DESIGN UPDATE NOTES
+
+What was enhanced:
+1. All main windows now open maximized with a larger minimum size.
+2. UITheme.cs applies a cleaner modern theme without editing Designer files manually.
+3. Sidebar/navigation buttons now have a dark modern style and hover effects.
+4. Dashboard cards are automatically arranged in a responsive grid when the window is maximized/resized.
+5. Dashboard cards now have cleaner spacing, larger counters, modern colors, and rounded borders.
+6. DataGridViews now have modern headers, improved row height, alternating row colors, and better selection color.
+7. Buttons, labels, textboxes, combo boxes, date pickers, radio buttons, and checkboxes were restyled.
+8. Double buffering was enabled to reduce flicker during resizing and hover effects.
+
+What was NOT changed:
+- Database logic
+- API calls
+- CRUD functions
+- Button click events
+- Existing form functionality
+- Designer-generated event wiring
+
+How to adjust colors:
+Open Transparent Form/UITheme.cs and edit the Color.FromArgb values near the top.

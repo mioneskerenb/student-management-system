@@ -1,0 +1,13 @@
+DESIGN FIX V3 - Manage Admin
+
+Fixed based on the latest screenshot:
+1. Removed the overlapping/cut "Password" label above Confirm Password by adding a dedicated Manage Admin layout in UITheme.cs.
+2. Repositioned First Name, Last Name, Email Address, Password, and Confirm Password neatly.
+3. Kept the Add, Update, Delete, and Clear buttons aligned at the bottom-right of the form card.
+4. Made the admins table visible and sized properly under the form card.
+5. The Manage Admin form now loads all admins automatically when the form opens by calling LoadAdmins() in ManageScoreForm_Load.
+
+Important:
+- Backend/API/CRUD logic was not changed.
+- The admins table requires the PHP API endpoint to be running:
+  http://localhost/Student-Attendance-System01-main/api/admins.php
